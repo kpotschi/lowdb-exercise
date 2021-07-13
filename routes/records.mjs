@@ -21,7 +21,7 @@ router.get('/getRecords', (req, res, next) => {
 
 router.post('/addRecord', (req, res) => {
 	req.query.id = new Date();
-	db.data.push(record);
+	db.data.push(req.query);
 	db.write();
 	res.send(`${req.query.title} was added`);
 });
